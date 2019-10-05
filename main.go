@@ -9,7 +9,7 @@ import (
 
 var (
 	rows     = 5
-	cells    = 5
+	columns  = 5
 	cellSize = 20
 )
 
@@ -20,7 +20,7 @@ func main() {
 func run() {
 	win, err := pixelgl.NewWindow(pixelgl.WindowConfig{
 		Title:  "Game Of Life",
-		Bounds: pixel.R(0, 0, float64(cells*cellSize), float64(rows*cellSize)),
+		Bounds: pixel.R(0, 0, float64(columns*cellSize), float64(columns*cellSize)),
 		VSync:  true,
 	})
 
@@ -34,7 +34,7 @@ func run() {
 	for !win.Closed() {
 		imd.Clear()
 
-		for x := 0; x < cells; x++ {
+		for x := 0; x < columns; x++ {
 			for y := 0; y < rows; y++ {
 				imd.Color = colornames.Black
 				if x%2 == 0 {

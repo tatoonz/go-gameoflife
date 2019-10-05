@@ -7,6 +7,12 @@ import (
 	"golang.org/x/image/colornames"
 )
 
+var (
+	rows     = 5
+	cells    = 5
+	cellSize = 20
+)
+
 func main() {
 	pixelgl.Run(run)
 }
@@ -14,7 +20,7 @@ func main() {
 func run() {
 	win, err := pixelgl.NewWindow(pixelgl.WindowConfig{
 		Title:  "Game Of Life",
-		Bounds: pixel.R(0, 0, 1024, 768),
+		Bounds: pixel.R(0, 0, float64(cells*cellSize), float64(rows*cellSize)),
 		VSync:  true,
 	})
 
@@ -31,7 +37,7 @@ func run() {
 		imd.Color = colornames.Black
 		imd.Push(
 			pixel.V(0, 0),
-			pixel.V(10, 10),
+			pixel.V(float64(cellSize), float64(cellSize)),
 		)
 		imd.Rectangle(0)
 

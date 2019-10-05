@@ -1,5 +1,10 @@
 package main
 
+import (
+	"math/rand"
+	"time"
+)
+
 type universe struct {
 	rows  int
 	cols  int
@@ -110,4 +115,14 @@ func (u *universe) liveNeighboursOfCell(x, y int) int {
 	}
 
 	return result
+}
+
+func (u *universe) randCells() {
+	rand.Seed(time.Now().UnixNano())
+
+	for y := 0; y < u.rows-1; y++ {
+		for x := 0; x < u.cols-1; x++ {
+			u.cells[y][x] = rand.Intn(2) == 0
+		}
+	}
 }

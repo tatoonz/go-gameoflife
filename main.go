@@ -13,16 +13,6 @@ var (
 	cellSize = 20
 )
 
-type universe struct {
-	rows    int
-	columns int
-	cells   [][]bool
-}
-
-func (u *universe) cellAlive(x, y int) bool {
-	return u.cells[y][x]
-}
-
 func main() {
 	pixelgl.Run(run)
 }

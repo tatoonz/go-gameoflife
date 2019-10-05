@@ -33,8 +33,13 @@ func (u *universe) countNeighbourLivesOfCell(x, y int) int {
 		nextX = 0
 	}
 
+	prevY := y - 1
+	if prevY < 0 {
+		prevY = u.rows - 1
+	}
+
 	// top left
-	if u.cellAlive(prevX, y-1) {
+	if u.cellAlive(prevX, prevY) {
 		result++
 	}
 
@@ -49,7 +54,7 @@ func (u *universe) countNeighbourLivesOfCell(x, y int) int {
 	}
 
 	// top
-	if u.cellAlive(x, y-1) {
+	if u.cellAlive(x, prevY) {
 		result++
 	}
 
@@ -59,7 +64,7 @@ func (u *universe) countNeighbourLivesOfCell(x, y int) int {
 	}
 
 	// top right
-	if u.cellAlive(nextX, y-1) {
+	if u.cellAlive(nextX, prevY) {
 		result++
 	}
 

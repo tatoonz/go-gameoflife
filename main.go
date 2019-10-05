@@ -34,15 +34,22 @@ func run() {
 	for !win.Closed() {
 		imd.Clear()
 
-		imd.Color = colornames.Black
-		imd.Push(
-			pixel.V(0, 0),
-			pixel.V(float64(cellSize), float64(cellSize)),
-		)
-		imd.Rectangle(0)
+		for x := 0; x < cells; x++ {
+			for y := 0; y < rows; y++ {
+				imd.Color = colornames.Black
+				if x%2 == 0 {
+					imd.Color = colornames.Red
+				}
+
+				imd.Push(
+					pixel.V(float64(x*cellSize), float64((rows-y-1)*cellSize)),
+					pixel.V(float64((x+1)*cellSize), float64((rows-y)*cellSize)),
+				)
+				imd.Rectangle(0)
+			}
+		}
 
 		imd.Draw(win)
-
 		win.Update()
 	}
 }

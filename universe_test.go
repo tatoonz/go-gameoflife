@@ -205,3 +205,31 @@ func TestLiveNeighboursOfCell_ShouldReturnCorrectNumber_ForCornerCases(t *testin
 		assert.Equal(t, 3, u.liveNeighboursOfCell(2, 2))
 	})
 }
+
+func TestNext_ShouldReturnCorrectNewUniverse(t *testing.T) {
+	u := &universe{
+		rows: 5,
+		cols: 5,
+		cells: [][]bool{
+			{false, false, false, false, false},
+			{false, false, false, false, false},
+			{false, true, true, true, false},
+			{false, false, false, false, false},
+			{false, false, false, false, false},
+		},
+	}
+
+	expected := &universe{
+		rows: 5,
+		cols: 5,
+		cells: [][]bool{
+			{false, false, false, false, false},
+			{false, false, true, false, false},
+			{false, false, true, false, false},
+			{false, false, true, false, false},
+			{false, false, false, false, false},
+		},
+	}
+
+	assert.Equal(t, expected, u.next())
+}

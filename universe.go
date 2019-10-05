@@ -6,6 +6,28 @@ type universe struct {
 	cells [][]bool
 }
 
+func newCells(rows, cols int) [][]bool {
+	result := make([][]bool, cols)
+
+	for y := range result {
+		result[y] = make([]bool, rows)
+	}
+
+	return result
+}
+
+func (u *universe) next() *universe {
+	nextU := &universe{rows: u.rows, cols: u.cols, cells: newCells(u.rows, u.cols)}
+
+	for y := range u.cells {
+		for x := range u.cells[y] {
+			nextU.cells[y][x] = u.nextLifeOfCell(x, y)
+		}
+	}
+
+	return nextU
+}
+
 func (u *universe) cellAlive(x, y int) bool {
 	return u.cells[y][x]
 }

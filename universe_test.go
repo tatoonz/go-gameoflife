@@ -8,6 +8,8 @@ import (
 
 func TestNextLifeOfCell_ShouldReturnFalse_WhenNeighbourLivesLessThanTwo(t *testing.T) {
 	u := &universe{
+		rows:    3,
+		columns: 3,
 		cells: [][]bool{
 			{false, false, false},
 			{false, true, false},
@@ -21,6 +23,8 @@ func TestNextLifeOfCell_ShouldReturnFalse_WhenNeighbourLivesLessThanTwo(t *testi
 func TestNextLifeOfCell_ShouldStillAlive_WhenCellIsAlive(t *testing.T) {
 	t.Run("AndHas2LiveNeighbour", func(t *testing.T) {
 		u := &universe{
+			rows:    3,
+			columns: 3,
 			cells: [][]bool{
 				{true, false, false},
 				{false, true, true},
@@ -33,6 +37,8 @@ func TestNextLifeOfCell_ShouldStillAlive_WhenCellIsAlive(t *testing.T) {
 
 	t.Run("AndHas3LiveNeighbour", func(t *testing.T) {
 		u := &universe{
+			rows:    3,
+			columns: 3,
 			cells: [][]bool{
 				{true, false, true},
 				{false, true, true},
@@ -46,6 +52,8 @@ func TestNextLifeOfCell_ShouldStillAlive_WhenCellIsAlive(t *testing.T) {
 
 func TestCountNeighbourLivesOfCell_ShouldReturnCorrectNumber_ForNormalCase(t *testing.T) {
 	u := &universe{
+		rows:    3,
+		columns: 3,
 		cells: [][]bool{
 			{true, true, true},
 			{true, true, true},

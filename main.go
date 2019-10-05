@@ -22,11 +22,13 @@ func run() {
 		panic(err)
 	}
 
+	win.Clear(colornames.Whitesmoke)
+
 	imd := imdraw.New(nil)
 	for !win.Closed() {
 		imd.Clear()
 
-		imd.Color = colornames.Red
+		imd.Color = colornames.Black
 		imd.Push(
 			pixel.V(0, 0),
 			pixel.V(10, 10),

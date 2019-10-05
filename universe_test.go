@@ -43,3 +43,17 @@ func TestNextLifeOfCell_ShouldStillAlive_WhenCellIsAlive(t *testing.T) {
 		assert.True(t, u.nextLifeOfCell(1, 1))
 	})
 }
+
+func TestCountNeighbourLivesOfCell(t *testing.T) {
+	t.Run("ShouldReturnCorrectNumberForNormalCase", func(t *testing.T) {
+		u := &universe{
+			cells: [][]bool{
+				{true, true, true},
+				{true, true, true},
+				{true, true, true},
+			},
+		}
+
+		assert.Equal(t, 8, u.countNeighbourLivesOfCell(1, 1))
+	})
+}

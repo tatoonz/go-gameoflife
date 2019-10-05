@@ -18,16 +18,13 @@ func main() {
 }
 
 func run() {
-	uni := &universe{
-		rows: rows,
-		cols: columns,
-		cells: [][]bool{
-			{false, false, false, false, false},
-			{false, false, false, false, false},
-			{false, true, true, true, false},
-			{false, false, false, false, false},
-			{false, false, false, false, false},
-		},
+	uni := newUniverse(5, 5)
+	uni.cells = [][]bool{
+		{false, false, false, false, false},
+		{false, false, false, false, false},
+		{false, true, true, true, false},
+		{false, false, false, false, false},
+		{false, false, false, false, false},
 	}
 
 	win, err := pixelgl.NewWindow(pixelgl.WindowConfig{
@@ -61,6 +58,7 @@ func run() {
 				imd.Rectangle(0)
 			}
 		}
+		uni = uni.next()
 
 		imd.Draw(win)
 		win.Update()

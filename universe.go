@@ -6,18 +6,17 @@ type universe struct {
 	cells [][]bool
 }
 
-func newCells(rows, cols int) [][]bool {
-	result := make([][]bool, cols)
-
-	for y := range result {
-		result[y] = make([]bool, rows)
+func newUniverse(rows, cols int) *universe {
+	cells := make([][]bool, rows)
+	for y := range cells {
+		cells[y] = make([]bool, cols)
 	}
 
-	return result
+	return &universe{rows: rows, cols: cols, cells: cells}
 }
 
 func (u *universe) next() *universe {
-	nextU := &universe{rows: u.rows, cols: u.cols, cells: newCells(u.rows, u.cols)}
+	nextU := newUniverse(u.rows, u.cols)
 
 	for y := range u.cells {
 		for x := range u.cells[y] {

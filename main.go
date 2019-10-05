@@ -13,11 +13,33 @@ var (
 	cellSize = 20
 )
 
+type universe struct {
+	rows    int
+	columns int
+	cells   [][]bool
+}
+
+func (u *universe) cellAlive(x, y int) bool {
+	return u.cells[y][x]
+}
+
 func main() {
 	pixelgl.Run(run)
 }
 
 func run() {
+	uni := &universe{
+		rows:    rows,
+		columns: columns,
+		cells: [][]bool{
+			{false, false, false, false, false},
+			{false, false, false, false, false},
+			{false, true, true, true, false},
+			{false, false, false, false, false},
+			{false, false, false, false, false},
+		},
+	}
+
 	win, err := pixelgl.NewWindow(pixelgl.WindowConfig{
 		Title:  "Game Of Life",
 		Bounds: pixel.R(0, 0, float64(columns*cellSize), float64(columns*cellSize)),
@@ -36,9 +58,10 @@ func run() {
 
 		for x := 0; x < columns; x++ {
 			for y := 0; y < rows; y++ {
-				imd.Color = colornames.Black
-				if x%2 == 0 {
-					imd.Color = colornames.Red
+				imd.Color = colornames.Whitesmoke
+
+				if uni.cellAlive(x, y) {
+					imd.Color = colornames.Black
 				}
 
 				imd.Push(

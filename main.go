@@ -18,8 +18,72 @@ func main() {
 }
 
 func run() {
-	uni := newUniverse(50, 100)
-	uni.randCells()
+	// uni := newUniverse(50, 100)
+	// uni.randCells()
+
+	uni := newUniverse(60, 17)
+	uni.cells = [][]bool{
+		{false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false},
+		{false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false},
+		{false, false, false, false, false, false, true, true, true, true, false, false, false, false, false, false, false},
+		{false, false, false, false, false, true, false, false, false, true, false, false, false, false, false, false, false},
+		{false, false, false, false, false, false, false, false, false, true, false, false, false, false, false, false, false},
+		{false, false, false, false, false, true, false, false, true, false, false, false, false, false, false, false, false},
+		{false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false},
+		{false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false},
+		{false, false, false, true, false, false, false, false, false, true, true, false, false, false, false, false, false},
+		{false, true, false, false, true, false, false, false, false, true, false, false, false, false, false, false, false},
+		{false, true, false, false, true, false, false, false, false, false, false, false, true, false, false, false, false},
+		{false, false, true, false, false, false, false, false, false, false, false, true, true, false, false, false, false},
+		{false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false},
+		{false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false},
+		{false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false},
+		{false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false},
+		{false, false, false, false, true, true, true, false, false, false, true, true, true, false, false, false, false},
+		{false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false},
+		{false, false, true, false, false, false, false, true, false, true, false, false, false, false, true, false, false},
+		{false, false, true, false, false, false, false, true, false, true, false, false, false, false, true, false, false},
+		{false, false, true, false, false, false, false, true, false, true, false, false, false, false, true, false, false},
+		{false, false, false, false, true, true, true, false, false, false, true, true, true, false, false, false, false},
+		{false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false},
+		{false, false, false, false, true, true, true, false, false, false, true, true, true, false, false, false, false},
+		{false, false, true, false, false, false, false, true, false, true, false, false, false, false, true, false, false},
+		{false, false, true, false, false, false, false, true, false, true, false, false, false, false, true, false, false},
+		{false, false, true, false, false, false, false, true, false, true, false, false, false, false, true, false, false},
+		{false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false},
+		{false, false, false, false, true, true, true, false, false, false, true, true, true, false, false, false, false},
+		{false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false},
+		{false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false},
+		{false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false},
+		{false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false},
+		{false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false},
+		{false, false, false, false, false, false, false, true, true, true, false, false, false, false, false, false, false},
+		{false, false, false, false, false, false, false, true, false, true, false, false, false, false, false, false, false},
+		{false, false, false, false, false, false, false, true, true, true, false, false, false, false, false, false, false},
+		{false, false, false, false, false, false, false, true, true, true, false, false, false, false, false, false, false},
+		{false, false, false, false, false, false, false, true, true, true, false, false, false, false, false, false, false},
+		{false, false, false, false, false, false, false, true, true, true, false, false, false, false, false, false, false},
+		{false, false, false, false, false, false, false, true, false, true, false, false, false, false, false, false, false},
+		{false, false, false, false, false, false, false, true, true, true, false, false, false, false, false, false, false},
+		{false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false},
+		{false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false},
+		{false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false},
+		{false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false},
+		{false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false},
+		{false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false},
+		{false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false},
+		{false, false, false, true, true, true, true, false, false, false, false, false, false, false, false, false, false},
+		{false, false, true, true, true, true, true, true, false, false, false, false, false, false, false, false, false},
+		{false, false, true, true, true, true, false, true, true, false, false, false, false, false, false, false, false},
+		{false, false, false, false, false, false, true, true, false, false, false, false, false, false, false, false, false},
+		{false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false},
+		{false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false},
+		{false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false},
+		{false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false},
+		{false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false},
+		{false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false},
+		{false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false},
+	}
 
 	win, err := pixelgl.NewWindow(pixelgl.WindowConfig{
 		Title:  "Game Of Life",
@@ -34,7 +98,7 @@ func run() {
 	win.Clear(colornames.Whitesmoke)
 
 	imd := imdraw.New(nil)
-	tick := time.Tick(100 * time.Millisecond)
+	tick := time.Tick(300 * time.Millisecond)
 	for !win.Closed() {
 		select {
 		case <-tick:

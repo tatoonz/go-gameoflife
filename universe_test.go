@@ -108,7 +108,7 @@ func TestNextLifeOfCell_ShouldStillDead_WhenDeadCellHasNotExact3LiveNeighbours(t
 	})
 }
 
-func TestCountNeighbourLivesOfCell_ShouldReturnCorrectNumber_ForNormalCase(t *testing.T) {
+func TestLiveNeighboursOfCell_ShouldReturnCorrectNumber_ForNormalCase(t *testing.T) {
 	u := &universe{
 		rows:    3,
 		columns: 3,
@@ -119,10 +119,10 @@ func TestCountNeighbourLivesOfCell_ShouldReturnCorrectNumber_ForNormalCase(t *te
 		},
 	}
 
-	assert.Equal(t, 8, u.countNeighbourLivesOfCell(1, 1))
+	assert.Equal(t, 8, u.liveNeighboursOfCell(1, 1))
 }
 
-func TestCountNeighbourLivesOfCell_ShouldReturnCorrectNumber_ForLeftEdgeCase(t *testing.T) {
+func TestLiveNeighboursOfCell_ShouldReturnCorrectNumber_ForLeftEdgeCase(t *testing.T) {
 	u := &universe{
 		rows:    3,
 		columns: 3,
@@ -133,10 +133,10 @@ func TestCountNeighbourLivesOfCell_ShouldReturnCorrectNumber_ForLeftEdgeCase(t *
 		},
 	}
 
-	assert.Equal(t, 3, u.countNeighbourLivesOfCell(0, 1))
+	assert.Equal(t, 3, u.liveNeighboursOfCell(0, 1))
 }
 
-func TestCountNeighbourLivesOfCell_ShouldReturnCorrectNumber_ForRightEdgeCase(t *testing.T) {
+func TestLiveNeighboursOfCell_ShouldReturnCorrectNumber_ForRightEdgeCase(t *testing.T) {
 	u := &universe{
 		rows:    3,
 		columns: 3,
@@ -147,10 +147,10 @@ func TestCountNeighbourLivesOfCell_ShouldReturnCorrectNumber_ForRightEdgeCase(t 
 		},
 	}
 
-	assert.Equal(t, 3, u.countNeighbourLivesOfCell(2, 1))
+	assert.Equal(t, 3, u.liveNeighboursOfCell(2, 1))
 }
 
-func TestCountNeighbourLivesOfCell_ShouldReturnCorrectNumber_ForTopEdgeCase(t *testing.T) {
+func TestLiveNeighboursOfCell_ShouldReturnCorrectNumber_ForTopEdgeCase(t *testing.T) {
 	u := &universe{
 		rows:    3,
 		columns: 3,
@@ -161,10 +161,10 @@ func TestCountNeighbourLivesOfCell_ShouldReturnCorrectNumber_ForTopEdgeCase(t *t
 		},
 	}
 
-	assert.Equal(t, 3, u.countNeighbourLivesOfCell(1, 0))
+	assert.Equal(t, 3, u.liveNeighboursOfCell(1, 0))
 }
 
-func TestCountNeighbourLivesOfCell_ShouldReturnCorrectNumber_ForBottomEdgeCase(t *testing.T) {
+func TestLiveNeighboursOfCell_ShouldReturnCorrectNumber_ForBottomEdgeCase(t *testing.T) {
 	u := &universe{
 		rows:    3,
 		columns: 3,
@@ -175,10 +175,10 @@ func TestCountNeighbourLivesOfCell_ShouldReturnCorrectNumber_ForBottomEdgeCase(t
 		},
 	}
 
-	assert.Equal(t, 3, u.countNeighbourLivesOfCell(1, 2))
+	assert.Equal(t, 3, u.liveNeighboursOfCell(1, 2))
 }
 
-func TestCountNeighbourLivesOfCell_ShouldReturnCorrectNumber_ForCornerCases(t *testing.T) {
+func TestLiveNeighboursOfCell_ShouldReturnCorrectNumber_ForCornerCases(t *testing.T) {
 	u := &universe{
 		rows:    3,
 		columns: 3,
@@ -190,18 +190,18 @@ func TestCountNeighbourLivesOfCell_ShouldReturnCorrectNumber_ForCornerCases(t *t
 	}
 
 	t.Run("TopLeft", func(t *testing.T) {
-		assert.Equal(t, 3, u.countNeighbourLivesOfCell(0, 0))
+		assert.Equal(t, 3, u.liveNeighboursOfCell(0, 0))
 	})
 
 	t.Run("BottomLeft", func(t *testing.T) {
-		assert.Equal(t, 3, u.countNeighbourLivesOfCell(0, 2))
+		assert.Equal(t, 3, u.liveNeighboursOfCell(0, 2))
 	})
 
 	t.Run("TopRight", func(t *testing.T) {
-		assert.Equal(t, 3, u.countNeighbourLivesOfCell(2, 0))
+		assert.Equal(t, 3, u.liveNeighboursOfCell(2, 0))
 	})
 
 	t.Run("BottomRight", func(t *testing.T) {
-		assert.Equal(t, 3, u.countNeighbourLivesOfCell(2, 2))
+		assert.Equal(t, 3, u.liveNeighboursOfCell(2, 2))
 	})
 }

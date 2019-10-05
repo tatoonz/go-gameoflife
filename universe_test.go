@@ -97,3 +97,17 @@ func TestCountNeighbourLivesOfCell_ShouldReturnCorrectNumber_ForTopEdgeCase(t *t
 
 	assert.Equal(t, 3, u.countNeighbourLivesOfCell(1, 0))
 }
+
+func TestCountNeighbourLivesOfCell_ShouldReturnCorrectNumber_ForBottomEdgeCase(t *testing.T) {
+	u := &universe{
+		rows:    3,
+		columns: 3,
+		cells: [][]bool{
+			{true, true, true},
+			{false, false, false},
+			{false, true, false},
+		},
+	}
+
+	assert.Equal(t, 3, u.countNeighbourLivesOfCell(1, 2))
+}

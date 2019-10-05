@@ -50,6 +50,20 @@ func TestNextLifeOfCell_ShouldStillAlive_WhenCellIsAlive(t *testing.T) {
 	})
 }
 
+func TestNextLifeOfCell_ShouldResurrect_WhenDeadCellHasExact3LiveNeighbours(t *testing.T) {
+	u := &universe{
+		rows:    3,
+		columns: 3,
+		cells: [][]bool{
+			{true, false, false},
+			{false, false, true},
+			{false, true, false},
+		},
+	}
+
+	assert.True(t, u.nextLifeOfCell(1, 1))
+}
+
 func TestCountNeighbourLivesOfCell_ShouldReturnCorrectNumber_ForNormalCase(t *testing.T) {
 	u := &universe{
 		rows:    3,

@@ -1,9 +1,9 @@
 package main
 
 type universe struct {
-	rows    int
-	columns int
-	cells   [][]bool
+	rows  int
+	cols  int
+	cells [][]bool
 }
 
 func (u *universe) cellAlive(x, y int) bool {
@@ -30,11 +30,11 @@ func (u *universe) liveNeighboursOfCell(x, y int) int {
 
 	prevX := x - 1
 	if prevX < 0 {
-		prevX = u.columns - 1
+		prevX = u.cols - 1
 	}
 
 	nextX := x + 1
-	if nextX > u.columns-1 {
+	if nextX > u.cols-1 {
 		nextX = 0
 	}
 

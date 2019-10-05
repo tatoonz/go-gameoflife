@@ -8,8 +8,8 @@ import (
 
 func TestNextLifeOfCell_ShouldDie_WhenNeighbourLivesLessThanTwo(t *testing.T) {
 	u := &universe{
-		rows:    3,
-		columns: 3,
+		rows: 3,
+		cols: 3,
 		cells: [][]bool{
 			{false, false, false},
 			{false, true, false},
@@ -22,8 +22,8 @@ func TestNextLifeOfCell_ShouldDie_WhenNeighbourLivesLessThanTwo(t *testing.T) {
 
 func TestNextLifeOfCell_ShouldDie_WhenAliveCellHasMoreThan3LiveNeighbours(t *testing.T) {
 	u := &universe{
-		rows:    3,
-		columns: 3,
+		rows: 3,
+		cols: 3,
 		cells: [][]bool{
 			{true, false, false},
 			{false, true, true},
@@ -37,8 +37,8 @@ func TestNextLifeOfCell_ShouldDie_WhenAliveCellHasMoreThan3LiveNeighbours(t *tes
 func TestNextLifeOfCell_ShouldStillAlive_WhenCellIsAlive(t *testing.T) {
 	t.Run("AndHas2LiveNeighbour", func(t *testing.T) {
 		u := &universe{
-			rows:    3,
-			columns: 3,
+			rows: 3,
+			cols: 3,
 			cells: [][]bool{
 				{true, false, false},
 				{false, true, true},
@@ -51,8 +51,8 @@ func TestNextLifeOfCell_ShouldStillAlive_WhenCellIsAlive(t *testing.T) {
 
 	t.Run("AndHas3LiveNeighbour", func(t *testing.T) {
 		u := &universe{
-			rows:    3,
-			columns: 3,
+			rows: 3,
+			cols: 3,
 			cells: [][]bool{
 				{true, false, true},
 				{false, true, true},
@@ -66,8 +66,8 @@ func TestNextLifeOfCell_ShouldStillAlive_WhenCellIsAlive(t *testing.T) {
 
 func TestNextLifeOfCell_ShouldResurrect_WhenDeadCellHasExact3LiveNeighbours(t *testing.T) {
 	u := &universe{
-		rows:    3,
-		columns: 3,
+		rows: 3,
+		cols: 3,
 		cells: [][]bool{
 			{true, false, false},
 			{false, false, true},
@@ -81,8 +81,8 @@ func TestNextLifeOfCell_ShouldResurrect_WhenDeadCellHasExact3LiveNeighbours(t *t
 func TestNextLifeOfCell_ShouldStillDead_WhenDeadCellHasNotExact3LiveNeighbours(t *testing.T) {
 	t.Run("LessThanCase", func(t *testing.T) {
 		u := &universe{
-			rows:    3,
-			columns: 3,
+			rows: 3,
+			cols: 3,
 			cells: [][]bool{
 				{true, false, false},
 				{false, false, false},
@@ -95,8 +95,8 @@ func TestNextLifeOfCell_ShouldStillDead_WhenDeadCellHasNotExact3LiveNeighbours(t
 
 	t.Run("MoreThanCase", func(t *testing.T) {
 		u := &universe{
-			rows:    3,
-			columns: 3,
+			rows: 3,
+			cols: 3,
 			cells: [][]bool{
 				{true, false, true},
 				{false, false, true},
@@ -110,8 +110,8 @@ func TestNextLifeOfCell_ShouldStillDead_WhenDeadCellHasNotExact3LiveNeighbours(t
 
 func TestLiveNeighboursOfCell_ShouldReturnCorrectNumber_ForNormalCase(t *testing.T) {
 	u := &universe{
-		rows:    3,
-		columns: 3,
+		rows: 3,
+		cols: 3,
 		cells: [][]bool{
 			{true, true, true},
 			{true, true, true},
@@ -124,8 +124,8 @@ func TestLiveNeighboursOfCell_ShouldReturnCorrectNumber_ForNormalCase(t *testing
 
 func TestLiveNeighboursOfCell_ShouldReturnCorrectNumber_ForLeftEdgeCase(t *testing.T) {
 	u := &universe{
-		rows:    3,
-		columns: 3,
+		rows: 3,
+		cols: 3,
 		cells: [][]bool{
 			{false, false, true},
 			{true, false, true},
@@ -138,8 +138,8 @@ func TestLiveNeighboursOfCell_ShouldReturnCorrectNumber_ForLeftEdgeCase(t *testi
 
 func TestLiveNeighboursOfCell_ShouldReturnCorrectNumber_ForRightEdgeCase(t *testing.T) {
 	u := &universe{
-		rows:    3,
-		columns: 3,
+		rows: 3,
+		cols: 3,
 		cells: [][]bool{
 			{true, false, false},
 			{true, false, true},
@@ -152,8 +152,8 @@ func TestLiveNeighboursOfCell_ShouldReturnCorrectNumber_ForRightEdgeCase(t *test
 
 func TestLiveNeighboursOfCell_ShouldReturnCorrectNumber_ForTopEdgeCase(t *testing.T) {
 	u := &universe{
-		rows:    3,
-		columns: 3,
+		rows: 3,
+		cols: 3,
 		cells: [][]bool{
 			{false, true, false},
 			{false, false, false},
@@ -166,8 +166,8 @@ func TestLiveNeighboursOfCell_ShouldReturnCorrectNumber_ForTopEdgeCase(t *testin
 
 func TestLiveNeighboursOfCell_ShouldReturnCorrectNumber_ForBottomEdgeCase(t *testing.T) {
 	u := &universe{
-		rows:    3,
-		columns: 3,
+		rows: 3,
+		cols: 3,
 		cells: [][]bool{
 			{true, true, true},
 			{false, false, false},
@@ -180,8 +180,8 @@ func TestLiveNeighboursOfCell_ShouldReturnCorrectNumber_ForBottomEdgeCase(t *tes
 
 func TestLiveNeighboursOfCell_ShouldReturnCorrectNumber_ForCornerCases(t *testing.T) {
 	u := &universe{
-		rows:    3,
-		columns: 3,
+		rows: 3,
+		cols: 3,
 		cells: [][]bool{
 			{true, false, true},
 			{false, false, false},

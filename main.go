@@ -19,8 +19,8 @@ func main() {
 
 func run() {
 	uni := &universe{
-		rows:    rows,
-		columns: columns,
+		rows: rows,
+		cols: columns,
 		cells: [][]bool{
 			{false, false, false, false, false},
 			{false, false, false, false, false},

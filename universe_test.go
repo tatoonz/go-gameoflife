@@ -44,16 +44,28 @@ func TestNextLifeOfCell_ShouldStillAlive_WhenCellIsAlive(t *testing.T) {
 	})
 }
 
-func TestCountNeighbourLivesOfCell(t *testing.T) {
-	t.Run("ShouldReturnCorrectNumberForNormalCase", func(t *testing.T) {
-		u := &universe{
-			cells: [][]bool{
-				{true, true, true},
-				{true, true, true},
-				{true, true, true},
-			},
-		}
+func TestCountNeighbourLivesOfCell_ShouldReturnCorrectNumber_ForNormalCase(t *testing.T) {
+	u := &universe{
+		cells: [][]bool{
+			{true, true, true},
+			{true, true, true},
+			{true, true, true},
+		},
+	}
 
-		assert.Equal(t, 8, u.countNeighbourLivesOfCell(1, 1))
-	})
+	assert.Equal(t, 8, u.countNeighbourLivesOfCell(1, 1))
+}
+
+func TestCountNeighbourLivesOfCell_ShouldReturnCorrectNumber_ForLeftEdgeCase(t *testing.T) {
+	u := &universe{
+		rows:    3,
+		columns: 3,
+		cells: [][]bool{
+			{false, false, true},
+			{true, false, true},
+			{false, false, true},
+		},
+	}
+
+	assert.Equal(t, 3, u.countNeighbourLivesOfCell(0, 1))
 }

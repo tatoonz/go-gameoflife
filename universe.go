@@ -23,18 +23,23 @@ func (u *universe) nextLifeOfCell(x, y int) bool {
 func (u *universe) countNeighbourLivesOfCell(x, y int) int {
 	result := 0
 
+	prevX := x - 1
+	if prevX < 0 {
+		prevX = u.columns - 1
+	}
+
 	// top left
-	if u.cellAlive(x-1, y-1) {
+	if u.cellAlive(prevX, y-1) {
 		result++
 	}
 
 	// left
-	if u.cellAlive(x-1, y) {
+	if u.cellAlive(prevX, y) {
 		result++
 	}
 
 	// bottom left
-	if u.cellAlive(x-1, y+1) {
+	if u.cellAlive(prevX, y+1) {
 		result++
 	}
 

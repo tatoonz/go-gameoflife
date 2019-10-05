@@ -10,7 +10,7 @@ import (
 )
 
 var (
-	cellSize = 20
+	cellSize = 10
 )
 
 func main() {
@@ -18,15 +18,8 @@ func main() {
 }
 
 func run() {
-	uni := newUniverse(6, 6)
-	uni.cells = [][]bool{
-		{false, false, false, false, false, false},
-		{false, true, false, true, false, false},
-		{false, false, true, true, false, false},
-		{false, false, true, false, false, false},
-		{false, false, false, false, false, false},
-		{false, false, false, false, false, false},
-	}
+	uni := newUniverse(50, 100)
+	uni.randCells()
 
 	win, err := pixelgl.NewWindow(pixelgl.WindowConfig{
 		Title:  "Game Of Life",
@@ -41,7 +34,7 @@ func run() {
 	win.Clear(colornames.Whitesmoke)
 
 	imd := imdraw.New(nil)
-	tick := time.Tick(500 * time.Millisecond)
+	tick := time.Tick(100 * time.Millisecond)
 	for !win.Closed() {
 		select {
 		case <-tick:

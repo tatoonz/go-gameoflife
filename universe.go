@@ -1,7 +1,5 @@
 package main
 
-import "fmt"
-
 type universe struct {
 	rows    int
 	columns int
@@ -14,8 +12,6 @@ func (u *universe) cellAlive(x, y int) bool {
 
 func (u *universe) nextLifeOfCell(x, y int) bool {
 	liveNeighBours := u.countNeighbourLivesOfCell(x, y)
-
-	fmt.Println("liveNeighBours", liveNeighBours)
 
 	if liveNeighBours == 2 || liveNeighBours == 3 {
 		return true

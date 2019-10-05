@@ -12,8 +12,13 @@ func (u *universe) cellAlive(x, y int) bool {
 
 func (u *universe) nextLifeOfCell(x, y int) bool {
 	liveNeighBours := u.countNeighbourLivesOfCell(x, y)
+	cellAlive := u.cellAlive(x, y)
 
-	if u.cellAlive(x, y) && (liveNeighBours == 2 || liveNeighBours == 3) {
+	if cellAlive && (liveNeighBours == 2 || liveNeighBours == 3) {
+		return true
+	}
+
+	if !cellAlive && liveNeighBours == 3 {
 		return true
 	}
 

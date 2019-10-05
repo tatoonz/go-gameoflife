@@ -78,6 +78,36 @@ func TestNextLifeOfCell_ShouldResurrect_WhenDeadCellHasExact3LiveNeighbours(t *t
 	assert.True(t, u.nextLifeOfCell(1, 1))
 }
 
+func TestNextLifeOfCell_ShouldStillDead_WhenDeadCellHasNotExact3LiveNeighbours(t *testing.T) {
+	t.Run("LessThanCase", func(t *testing.T) {
+		u := &universe{
+			rows:    3,
+			columns: 3,
+			cells: [][]bool{
+				{true, false, false},
+				{false, false, false},
+				{false, true, false},
+			},
+		}
+
+		assert.False(t, u.nextLifeOfCell(1, 1))
+	})
+
+	t.Run("MoreThanCase", func(t *testing.T) {
+		u := &universe{
+			rows:    3,
+			columns: 3,
+			cells: [][]bool{
+				{true, false, true},
+				{false, false, true},
+				{false, true, false},
+			},
+		}
+
+		assert.False(t, u.nextLifeOfCell(1, 1))
+	})
+}
+
 func TestCountNeighbourLivesOfCell_ShouldReturnCorrectNumber_ForNormalCase(t *testing.T) {
 	u := &universe{
 		rows:    3,
